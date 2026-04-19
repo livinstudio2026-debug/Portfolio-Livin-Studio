@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leo | Freelance Web Developer & Tech Tutor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+
+<body>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">
+                <span class="logo-bracket">&lt;</span>Leo<span class="logo-dot">.</span><span
+                    class="logo-caret">/&gt;</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#hero" class="nav-link">Home</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#tutoring" class="nav-link">Tutoring</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#contact" class="nav-link nav-cta">Let's Talk</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-bg">
+            <div class="gradient-orb orb-1"></div>
+            <div class="gradient-orb orb-2"></div>
+            <div class="gradient-orb orb-3"></div>
+            <div class="particles" id="particles"></div>
+        </div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="hero-tag">Freelance Web Developer & Tech Tutor</span>
+                    <span class="title-main">No Leads?<br>No Website?<br>No Clarity in Coding?</span>
+                </h1>
+                <p class="hero-subtitle">
+                    He helps you build your business online and learn high-income tech skills.
+                </p>
+                <div class="hero-cta-group">
+                    <a href="#contact" class="btn btn-primary btn-large">
+                        <span>Hire Me</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                    <a href="#services" class="btn btn-outline btn-large">
+                        <span>View Services</span>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-profile">
+                <div class="profile-image-wrapper">
+                    <div class="profile-glow"></div>
+                    <img src="./assets/LeoAi.png" alt="Livinkumar - Web Developer & Tech Tutor" class="profile-image">
+                    <div class="profile-badge">
+                        <span class="badge-dot"></span>
+                        <span>Available for Hire</span>
+                    </div>
+                </div>
+                <div class="profile-info">
+                    <h2 class="profile-name">Livinkumar S (Leo)</h2>
+                    <p class="profile-tagline">Building digital success stories</p>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll-hint">
+            <div class="scroll-mouse">
+                <div class="scroll-wheel"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem → Solution Section -->
+    <section class="section problems-section" id="problems">
+        <!-- Floating Particles -->
+        <div class="problems-particles">
+            <div class="problem-particle"></div>
+            <div class="problem-particle"></div>
+            <div class="problem-particle"></div>
+            <div class="problem-particle"></div>
+            <div class="problem-particle"></div>
+            <div class="problem-particle"></div>
+        </div>
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Transform Your Challenges</span>
+                <h2 class="section-title">Sound Familiar?</h2>
+            </div>
+            <div class="problems-wrapper">
+                <div class="problems-grid">
+                    <div class="problem-card reveal">
+                        <div class="glow-burst"></div>
+                        <div class="problem-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path d="M12 8v4M12 16h.01" />
+                                <circle cx="12" cy="12" r="10" />
+                            </svg>
+                        </div>
+                        <h3 class="problem-title">Started a business… but not getting leads?</h3>
+                    </div>
+                    <div class="problem-card reveal">
+                        <div class="glow-burst"></div>
+                        <div class="problem-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <rect x="2" y="3" width="20" height="14" rx="2" />
+                                <path d="M8 21h8M12 17v4" />
+                                <path d="M9 8l6 4M9 12l6 4" />
+                            </svg>
+                        </div>
+                        <h3 class="problem-title">Have an idea… but no website to showcase it?</h3>
+                    </div>
+                    <div class="problem-card reveal">
+                        <div class="glow-burst"></div>
+                        <div class="problem-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path
+                                    d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z" />
+                            </svg>
+                        </div>
+                        <h3 class="problem-title">Trying to learn coding… but feeling stuck?</h3>
+                    </div>
+                </div>
+                <div class="solution-transition reveal">
+                    <div class="transition-line"></div>
+                    <p class="transition-text">That's exactly where I help.</p>
+                    <div class="transition-line"></div>
+                </div>
+                <div class="solutions-grid">
+                    <div class="solution-card reveal">
+                        <div class="glow-burst"></div>
+                        <div class="solution-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                                <path d="M2 17l10 5 10-5M2 12l10 5 10-5" />
+                            </svg>
+                        </div>
+                        <h3 class="solution-title">Modern, High-Performing Websites</h3>
+                        <p class="solution-desc">Attract, engage, and convert your visitors into paying customers.</p>
+                    </div>
+                    <div class="solution-card reveal">
+                        <div class="glow-burst"></div>
+                        <div class="solution-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z" />
+                                <path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z" />
+                            </svg>
+                        </div>
+                        <h3 class="solution-title">Coding Education That Works</h3>
+                        <p class="solution-desc">Learn in a way that actually makes you understand — not just memorize.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Personal Branding -->
+    <section class="section branding-section">
+        <div class="container">
+            <div class="branding-content reveal">
+                <div class="branding-image">
+                    <img src="./assets/leo2.png" alt="Livinkumar" class="branding-img">
+                    <div class="branding-glow"></div>
+                </div>
+                <div class="branding-text">
+                    <span class="section-tag">About Livinkumar</span>
+                    <h2 class="branding-title">I Build High-Converting Websites for Businesses</h2>
+                    <p class="branding-title-2">And Teach People How to Master Real-World Coding Skills</p>
+                    <p class="branding-desc">
+                        With years of hands-on experience in web development and tech education, I've helped numerous
+                        businesses attract more customers through powerful websites and helped aspiring developers land
+                        their first tech roles.
+                    </p>
+                    <div class="branding-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">3+</span>
+                            <span class="stat-label">Projects Delivered</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">300+</span>
+                            <span class="stat-label">Students Taught</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">3+</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust / Value Section -->
+    <section class="section trust-section">
+        <div class="container">
+            <div class="trust-content reveal">
+                <h2 class="trust-title">I Don't Just Build Websites…</h2>
+                <p class="trust-text">I Build Solutions That Help Your Business Grow and Your Skills Improve.</p>
+                <div class="trust-line"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section services-section" id="services">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">What I Offer</span>
+                <h2 class="section-title">Services Built for Results</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card service-card-featured reveal">
+                    <div class="featured-glow"></div>
+                    <div class="service-card-header">
+                        <div class="service-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <rect x="2" y="3" width="20" height="14" rx="2" />
+                                <path d="M8 21h8M12 17v4" />
+                            </svg>
+                        </div>
+                        <span class="service-badge badge-featured">Most Demanding</span>
+                    </div>
+                    <h3 class="service-title">Landing Page Development</h3>
+                    <ul class="service-features">
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M20 6L9 17l-5-5" />
+                            </svg>
+                            High-converting design
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M20 6L9 17l-5-5" />
+                            </svg>
+                            Fast & fully responsive
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M20 6L9 17l-5-5" />
+                            </svg>
+                            Business-focused UI
+                        </li>
+                    </ul>
+                    <a href="#contact" class="btn btn-cta btn-full">Get Landing Page</a>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-card-header">
+                        <div class="service-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
+                                <circle cx="12" cy="7" r="4" />
+                            </svg>
+                        </div>
+                        <span class="service-badge">In Demand</span>
+                    </div>
+                    <h3 class="service-title">Stunning Portfolio Websites</h3>
+                    <ul class="service-features">
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M20 6L9 17l-5-5" />
+                            </svg>
+                            Personal branding design
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M20 6L9 17l-5-5" />
+                            </svg>
+                            Smooth animations
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M20 6L9 17l-5-5" />
+                            </svg>
+                            Fully responsive
+                        </li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary btn-full">Build My Portfolio</a>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-card-header">
+                        <div class="service-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                                <path d="M2 17l10 5 10-5M2 12l10 5 10-5" />
+                            </svg>
+                        </div>
+                        <span class="service-badge badge-featured">Premium</span>
+                    </div>
+                    <h3 class="service-title">Full Stack Web Applications</h3>
+                    <ul class="service-features">
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M20 6L9 17l-5-5" />
+                            </svg>
+                            MERN stack development
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M20 6L9 17l-5-5" />
+                            </svg>
+                            Authentication & APIs
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M20 6L9 17l-5-5" />
+                            </svg>
+                            Scalable architecture
+                        </li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary btn-full">Start Your Project</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Tutoring Section -->
+    <section class="section tutoring-section" id="tutoring">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Learn Tech Skills</span>
+                <h2 class="section-title">Tech Tutoring That Actually Works</h2>
+                <p class="section-subtitle">Real-world examples. Hands-on learning. Results that matter.</p>
+            </div>
+            <div class="tutoring-grid" id="tutoringGrid">
+                <div class="tutoring-card reveal" data-course="python">
+                    <div class="tutoring-card-badge">Beginner Friendly</div>
+                    <div class="tutoring-icon">
+                        <svg fill="white" width="48" height="48" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 640 640">
+                            <path
+                                d="M535.8 264.5C528.1 233.6 513.5 210.3 482.4 210.3L442.3 210.3L442.3 257.7C442.3 294.5 411.1 325.5 375.5 325.5L268.7 325.5C239.5 325.5 215.3 350.5 215.3 379.8L215.3 481.6C215.3 510.6 240.5 527.6 268.7 535.9C302.5 545.8 335 547.6 375.5 535.9C402.4 528.1 428.9 512.4 428.9 481.6L428.9 440.9L322.2 440.9L322.2 427.3L482.4 427.3C513.5 427.3 525 405.6 535.8 373.1C547 339.6 546.5 307.4 535.8 264.5zM382.2 508.7C374.6 509.2 367.3 505.5 363.3 499C359.4 492.4 359.4 484.3 363.3 477.7C367.3 471.2 374.6 467.5 382.2 468C389.8 467.5 397.1 471.2 401.1 477.7C405 484.3 405 492.4 401.1 499C397.1 505.5 389.8 509.2 382.2 508.7zM263.8 312.1L370.6 312.1C400.3 312.1 424 287.6 424 257.8L424 155.9C424 126.9 399.6 105.2 370.6 100.3C334.8 94.4 295.9 94.7 263.8 100.4C218.6 108.4 210.4 125.1 210.4 156L210.4 196.7L317.3 196.7L317.3 210.3L170.3 210.3C139.2 210.3 112 229 103.5 264.5C93.7 305.2 93.3 330.6 103.5 373.1C111.1 404.7 129.2 427.3 160.3 427.3L197 427.3L197 378.5C197 343.2 227.5 312.1 263.8 312.1zM257.2 128.7C268.5 128.7 277.6 137.8 277.6 149.1C277.6 160.4 268.5 169.5 257.2 169.5C245.9 169.5 236.8 160.4 236.8 149.1C236.8 137.8 245.9 128.7 257.2 128.7z" />
+                        </svg>
+                    </div>
+                    <h3 class="tutoring-title">Python Mastery</h3>
+                    <p class="tutoring-level">Beginner to Intermediate</p>
+                    <div class="tutoring-meta">
+                        <span class="tutoring-duration">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="12" cy="12" r="10" />
+                                <path d="M12 6v6l4 2" />
+                            </svg>
+                            3-4 Weeks
+                        </span>
+                        <span class="tutoring-price">₹4,999</span>
+                    </div>
+                    <ul class="tutoring-features">
+                        <li>Learn Python fundamentals clearly</li>
+                        <li>Understand functions and OOP concepts</li>
+                        <li>Build mini real-world projects</li>
+                        <li>Weekly practice assignments</li>
+                        <li>Personal doubt support</li>
+                    </ul>
+                    <button class="btn btn-secondary btn-full know-more-btn" data-course="python">Know More</button>
+                </div>
+                <div class="tutoring-card tutoring-card-featured reveal" data-course="javascript">
+                    <div class="featured-glow"></div>
+                    <div class="tutoring-card-badge badge-popular">Most Popular</div>
+                    <div class="tutoring-icon">
+                        <svg fill="white" width="48" height="48" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 640 640">
+                            <path
+                                d="M96 96L96 544L544 544L544 96L96 96zM339.8 445.4C339.8 489 314.2 508.9 276.9 508.9C243.2 508.9 223.7 491.5 213.7 470.4L248 449.7C254.6 461.4 260.6 471.3 275.1 471.3C288.9 471.3 297.7 465.9 297.7 444.8L297.7 301.7L339.8 301.7L339.8 445.4zM439.4 508.9C400.3 508.9 375 490.3 362.7 465.9L397 446.1C406 460.8 417.8 471.7 438.5 471.7C455.9 471.7 467.1 463 467.1 450.9C467.1 436.5 455.7 431.4 436.4 422.9L425.9 418.4C395.5 405.5 375.4 389.2 375.4 354.9C375.4 323.3 399.5 299.3 437 299.3C463.8 299.3 483 308.6 496.8 333L464 354C456.8 341.1 449 336 436.9 336C424.6 336 416.8 343.8 416.8 354C416.8 366.6 424.6 371.7 442.7 379.6L453.2 384.1C489 399.4 509.1 415.1 509.1 450.3C509.1 488.1 479.3 508.9 439.4 508.9z" />
+                        </svg>
+                    </div>
+                    <h3 class="tutoring-title">JavaScript Mastery</h3>
+                    <p class="tutoring-level">Core to Advanced JavaScript</p>
+                    <div class="tutoring-meta">
+                        <span class="tutoring-duration">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="12" cy="12" r="10" />
+                                <path d="M12 6v6l4 2" />
+                            </svg>
+                            4-5 Weeks
+                        </span>
+                        <span class="tutoring-price">₹5,999</span>
+                    </div>
+                    <ul class="tutoring-features">
+                        <li>Master DOM manipulation</li>
+                        <li>Learn APIs and async programming</li>
+                        <li>Build interactive web apps</li>
+                        <li>Understand ES6+ concepts</li>
+                        <li>Portfolio project guidance</li>
+                    </ul>
+                    <button class="btn btn-cta btn-full know-more-btn" data-course="javascript">Know More</button>
+                </div>
+                <div class="tutoring-card reveal" data-course="frontend">
+                    <div class="tutoring-card-badge">Career Focused</div>
+                    <div class="tutoring-icon">
+                        <svg fill="white" width="48" height="48" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 640 640">
+                            <path
+                                d="M482.2 241.2C476.8 239.4 471.4 237.7 466 236.1C466.9 232.4 467.7 228.7 468.5 225C480.8 165.4 472.7 117.5 445.4 101.7C419.1 86.6 376.2 102.3 332.8 140.1C328.5 143.8 324.3 147.7 320.3 151.6C317.6 149 314.8 146.4 312 143.9C266.5 103.5 220.9 86.5 193.6 102.4C167.4 117.6 159.6 162.7 170.6 219.1C171.7 224.7 172.9 230.2 174.3 235.8C167.9 237.6 161.6 239.6 155.7 241.7C102.3 260.2 64 289.4 64 319.6C64 350.8 104.8 382.1 160.3 401.1C164.8 402.6 169.3 404.1 173.9 405.4C172.4 411.4 171.1 417.3 169.9 423.4C159.4 478.9 167.6 522.9 193.8 538C220.8 553.6 266.2 537.6 310.4 498.9C313.9 495.8 317.4 492.6 320.9 489.2C325.3 493.5 329.9 497.6 334.5 501.6C377.3 538.4 419.6 553.3 445.7 538.2C472.7 522.6 481.5 475.3 470.1 417.7C469.2 413.3 468.2 408.8 467.1 404.2C470.3 403.3 473.4 402.3 476.5 401.3C534.2 382.2 576 351.3 576 319.6C576 289.3 536.6 259.9 482.2 241.2zM346.9 156.3C384.1 123.9 418.8 111.2 434.6 120.3C451.5 130 458 169.2 447.4 220.7C446.7 224.1 446 227.4 445.1 230.7C422.9 225.7 400.4 222.1 377.8 220.1C364.8 201.5 350.6 183.7 335.2 167C339.1 163.3 342.9 159.8 346.9 156.3zM231.2 371.5C236.3 380.2 241.5 388.9 247 397.4C231.4 395.7 215.9 393.2 200.6 389.9C205 375.5 210.5 360.6 216.9 345.4C221.5 354.2 226.2 362.9 231.2 371.5zM200.9 251.2C215.3 248 230.6 245.4 246.5 243.4C241.2 251.7 236 260.2 231.1 268.8C226.2 277.3 221.4 286 216.9 294.8C210.6 279.9 205.3 265.3 200.9 251.2zM228.3 320.1C234.9 306.3 242.1 292.8 249.7 279.5C257.3 266.2 265.5 253.3 274.1 240.6C289.1 239.5 304.4 238.9 320 238.9C335.6 238.9 351 239.5 365.9 240.6C374.4 253.2 382.5 266.1 390.2 279.3C397.9 292.5 405.1 306 411.9 319.7C405.2 333.5 398 347.1 390.3 360.5C382.7 373.8 374.6 386.7 366.1 399.5C351.2 400.6 335.7 401.1 320 401.1C304.3 401.1 289.1 400.6 274.4 399.7C265.7 387 257.5 374 249.8 360.7C242.1 347.4 235 333.9 228.3 320.1zM408.9 371.3C414 362.5 418.8 353.6 423.5 344.6C429.9 359.1 435.5 373.8 440.4 388.9C424.9 392.4 409.2 395.1 393.4 396.9C398.8 388.5 403.9 379.9 408.9 371.3zM423.3 294.8C418.6 286 413.8 277.2 408.8 268.6C403.9 260.1 398.8 251.7 393.5 243.4C409.6 245.4 425 248.1 439.4 251.4C434.8 266.2 429.4 280.6 423.3 294.8zM320.2 182.3C330.7 193.7 340.6 205.7 349.8 218.1C330 217.2 310.1 217.2 290.3 218.1C300.1 205.2 310.2 193.2 320.2 182.3zM204.2 121C221 111.2 258.3 125.2 297.6 160C300.1 162.2 302.6 164.6 305.2 167C289.7 183.7 275.4 201.5 262.3 220.1C239.7 222.1 217.3 225.6 195.1 230.5C193.8 225.4 192.7 220.2 191.6 215C182.2 166.6 188.4 130.1 204.2 121zM179.7 384.6C175.5 383.4 171.4 382.1 167.3 380.7C146 374 121.8 363.4 104.3 349.5C94.2 342.5 87.4 331.7 85.5 319.6C85.5 301.3 117.1 277.9 162.7 262C168.4 260 174.2 258.2 180 256.5C186.8 278.2 195 299.5 204.5 320.1C194.9 341 186.6 362.6 179.7 384.6zM296.3 482.6C279.8 497.7 260.7 509.7 239.9 517.9C228.8 523.2 216 523.7 204.6 519.2C188.7 510 182.1 474.7 191.1 427.2C192.2 421.6 193.4 416 194.8 410.5C217.2 415.3 239.8 418.6 262.7 420.3C275.9 439 290.4 456.9 305.9 473.7C302.7 476.8 299.5 479.8 296.3 482.6zM320.8 458.3C310.6 447.3 300.4 435.1 290.5 422C300.1 422.4 310 422.6 320 422.6C330.3 422.6 340.4 422.4 350.4 421.9C341.2 434.6 331.3 446.7 320.8 458.3zM451.5 488.3C450.6 500.5 444.6 511.9 435 519.6C419.1 528.8 385.2 516.8 348.6 485.4C344.4 481.8 340.2 477.9 335.9 473.9C351.2 457 365.3 439.1 378.1 420.3C401 418.4 423.8 414.9 446.3 409.8C447.3 413.9 448.2 418 449 422C453.9 443.6 454.7 466.1 451.5 488.3zM469.7 380.8C466.9 381.7 464.1 382.6 461.2 383.4C454.2 361.6 445.6 340.3 435.7 319.6C445.3 299.2 453.4 278.2 460.2 256.7C465.4 258.2 470.4 259.8 475.2 261.4C521.8 277.4 554.5 301.2 554.5 319.4C554.5 339 519.6 364.3 469.7 380.8zM320 365.8C345.3 365.8 365.8 345.3 365.8 320C365.8 294.7 345.3 274.2 320 274.2C294.7 274.2 274.2 294.7 274.2 320C274.2 345.3 294.7 365.8 320 365.8z" />
+                        </svg>
+                    </div>
+                    <h3 class="tutoring-title">Frontend Mastery</h3>
+                    <p class="tutoring-level">HTML to React Development</p>
+                    <div class="tutoring-meta">
+                        <span class="tutoring-duration">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="12" cy="12" r="10" />
+                                <path d="M12 6v6l4 2" />
+                            </svg>
+                            6-8 Weeks
+                        </span>
+                        <span class="tutoring-price">₹7,999</span>
+                    </div>
+                    <ul class="tutoring-features">
+                        <li>Master HTML, CSS, and JavaScript</li>
+                        <li>Build responsive modern layouts</li>
+                        <li>Learn Tailwind CSS workflow</li>
+                        <li>Understand React fundamentals</li>
+                        <li>Create real portfolio projects</li>
+                        <li>UI design best practices</li>
+                    </ul>
+                    <button class="btn btn-secondary btn-full know-more-btn" data-course="frontend">Know More</button>
+                </div>
+            </div>
+
+            <!-- Course Detail View -->
+            <div class="course-detail-container" id="courseDetailContainer">
+                <div class="course-detail-content" id="courseDetailContent"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enrollment Popup -->
+    <div class="enrollment-popup" id="enrollmentPopup">
+        <div class="enrollment-popup-overlay" id="enrollmentPopupOverlay"></div>
+        <div class="enrollment-popup-content">
+            <button class="enrollment-popup-close" id="enrollmentPopupClose">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 6L6 18M6 6l12 12" />
+                </svg>
+            </button>
+            <div class="enrollment-popup-header">
+                <h3 class="enrollment-popup-title">Enroll Now</h3>
+                <p class="enrollment-popup-subtitle">Start your learning journey today</p>
+            </div>
+            <form class="enrollment-form" id="enrollmentForm">
+                <div class="form-group">
+                    <label for="enrollName">Full Name</label>
+                    <input type="text" id="enrollName" name="name" placeholder="Enter your full name" required>
+                </div>
+                <div class="form-group">
+                    <label for="enrollEmail">Email Address</label>
+                    <input type="email" id="enrollEmail" name="email" placeholder="your.email@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="enrollPhone">Phone Number</label>
+                    <input type="tel" id="enrollPhone" name="phone" placeholder="+91 9876543210" required>
+                </div>
+                <div class="form-group">
+                    <label for="enrollCourse">Selected Course</label>
+                    <input type="text" id="enrollCourse" name="course" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="enrollMessage">Message (Optional)</label>
+                    <textarea id="enrollMessage" name="message" rows="3"
+                        placeholder="Any questions or comments..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full btn-enroll">
+                    <span>Submit Enrollment</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
+                    </svg>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Success Notification -->
+    <div class="success-notification" id="successNotification">
+        <div class="success-notification-content">
+            <div class="success-icon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 6L9 17l-5-5" />
+                </svg>
+            </div>
+            <p class="success-message">We will contact you soon.</p>
+        </div>
+    </div>
+
+    <!-- Projects Section -->
+    <section class="section projects-section" id="projects">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">My Work</span>
+                <h2 class="section-title">Projects That Speak Quality</h2>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card reveal">
+                    <div class="project-image">
+                        <img src="./assets/projects/LoomCraft-Threads-Premium-Hospital-Bedsheets-Pillow.png"
+                            alt="Project Alpha - Blog Platform">
+                        <div class="project-overlay">
+                            <div class="project-overlay-content">
+                                <a href="https://livinstudio2026-debug.github.io/LoomCraft-Threads/" class="btn btn-small"
+                                    target="_blank">Live Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-tag">Frontend</span>
+                        <h3 class="project-title">LoomCraft Threads</h3>
+                        <p class="project-desc">
+                            A modern responsive textile business landing page designed to showcase premium products,
+                            build brand trust, and improve customer engagement through elegant visuals and smooth
+                            interactive animations.
+                        </p>
+                        <div class="project-tech">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                            <span>GSAP</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card reveal">
+                    <div class="project-image">
+                        <img src="./assets/projects/Frostella-Creamery-Luxury-Artisan-Ice-Cream.png"
+                            alt="Frostella Creamery - Luxury Ice Cream Website">
+                        <div class="project-overlay">
+                            <div class="project-overlay-content">
+                                <a href="https://frostellacreamerylivinstudio.netlify.app/" target="_blank" class="btn btn-small">Live Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-tag">Luxury UI</span>
+                        <h3 class="project-title">Frostella Creamery</h3>
+                        <p class="project-desc">
+                            A premium artisan ice cream brand website featuring cinematic scroll animations,
+                            immersive storytelling, and a luxurious user experience designed to elevate digital
+                            branding.
+                        </p>
+                        <div class="project-tech">
+                            <span>React.js</span>
+                            <span>Framer Motion</span>
+                            <span>Tailwind CSS</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card reveal">
+                    <div class="project-image">
+                        <img src="./assets/projects/KS-Software-Solutions-Data-Processing-Admin-Support-Experts.png"
+                            alt="Project Beta - Portfolio Website">
+                        <div class="project-overlay">
+                            <div class="project-overlay-content">
+                                <a href="https://livinstudio2026-debug.github.io/KS-Software-Solutions/" target="_blank"
+                                    class="btn btn-small">Live Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-tag">Frontend</span>
+                        <h3 class="project-title">KS Software Solutions, Covai</h3>
+                        <p class="project-desc">
+                            A sleek corporate landing page crafted to highlight professional services, strengthen
+                            digital presence, and deliver a polished user experience with clean layouts and smooth
+                            transitions.
+                        </p>
+                        <div class="project-tech">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                            <span>GSAP</span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section skills-section" id="skills">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Technical Skills</span>
+                <h2 class="section-title">The Tools I Work With</h2>
+            </div>
+            <div class="skills-wrapper">
+                <div class="skill-category reveal">
+                    <h3 class="skill-category-title">Frontend</h3>
+                    <div class="skill-grid">
+                        <div class="skill-item">
+                            <div class="skill-icon-wrapper">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z" />
+                                </svg>
+                            </div>
+                            <span class="skill-name">HTML</span>
+                            <div class="skill-bar">
+                                <div class="skill-fill" data-width="95"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon-wrapper">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z" />
+                                </svg>
+                            </div>
+                            <span class="skill-name">CSS</span>
+                            <div class="skill-bar">
+                                <div class="skill-fill" data-width="92"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon-wrapper">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z" />
+                                </svg>
+                            </div>
+                            <span class="skill-name">JavaScript</span>
+                            <div class="skill-bar">
+                                <div class="skill-fill" data-width="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon-wrapper">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <circle cx="12" cy="12" r="3" />
+                                </svg>
+                            </div>
+                            <span class="skill-name">React</span>
+                            <div class="skill-bar">
+                                <div class="skill-fill" data-width="85"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category reveal">
+                    <h3 class="skill-category-title">Backend</h3>
+                    <div class="skill-grid">
+                        <div class="skill-item">
+                            <div class="skill-icon-wrapper">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <rect x="4" y="4" width="16" height="16" rx="2" />
+                                </svg>
+                            </div>
+                            <span class="skill-name">Node.js</span>
+                            <div class="skill-bar">
+                                <div class="skill-fill" data-width="88"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon-wrapper">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <rect x="4" y="4" width="16" height="16" rx="2" />
+                                </svg>
+                            </div>
+                            <span class="skill-name">Express</span>
+                            <div class="skill-bar">
+                                <div class="skill-fill" data-width="85"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category reveal">
+                    <h3 class="skill-category-title">Database</h3>
+                    <div class="skill-grid">
+                        <div class="skill-item">
+                            <div class="skill-icon-wrapper">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <ellipse cx="12" cy="5" rx="9" ry="3" />
+                                    <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+                                    <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+                                </svg>
+                            </div>
+                            <span class="skill-name">MongoDB</span>
+                            <div class="skill-bar">
+                                <div class="skill-fill" data-width="82"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon-wrapper">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <ellipse cx="12" cy="5" rx="9" ry="3" />
+                                    <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+                                    <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+                                </svg>
+                            </div>
+                            <span class="skill-name">PostgreSQL</span>
+                            <div class="skill-bar">
+                                <div class="skill-fill" data-width="78"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="section cta-section">
+        <div class="container">
+            <div class="cta-content reveal">
+                <h2 class="cta-title">Have an Idea?<br>Let's Turn It Into Reality.</h2>
+                <p class="cta-subtitle">Ready to start your project or learn something new? I'm just one message away.
+                </p>
+                <div class="cta-buttons">
+                    <a href="https://wa.me/7904535371?text=Hi%20Leo,%20I%20need%20a%20website" target="_blank"
+                        class="btn btn-whatsapp btn-large">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                        </svg>
+                        <span>WhatsApp Me</span>
+                    </a>
+                    <a href="tel:+917904535371" class="btn btn-call btn-large">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path
+                                d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
+                        </svg>
+                        <span>Call Me</span>
+                    </a>
+                    <a href="mailto:livinstudio2026@gmail.com" class="btn btn-email btn-large">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                            <path d="M22 6l-10 7L2 6" />
+                        </svg>
+                        <span>Email Me</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact-section" id="contact">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Get In Touch</span>
+                <h2 class="section-title">Let's Start a Conversation</h2>
+                <p class="section-subtitle">Have a project in mind or want to learn? Drop me a message!</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-form-wrapper reveal">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" placeholder="What should I call you?" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" rows="5"
+                                placeholder="Tell me about your project or what you'd like to learn..."
+                                required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">
+                            <span>Send Message</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+                <div class="contact-info reveal">
+                    <div class="contact-card">
+                        <h3 class="contact-card-title">Quick Contact</h3>
+                        <p class="contact-card-text">Prefer a direct conversation? Reach out through any of these
+                            channels.</p>
+                        <div class="contact-options">
+                            <a href="https://wa.me/7904535371?text=Hi%20Leo,%20I%20need%20a%20website" target="_blank"
+                                class="contact-option">
+                                <div class="contact-option-icon whatsapp">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                                    </svg>
+                                </div>
+                                <div class="contact-option-text">
+                                    <span class="contact-option-label">WhatsApp</span>
+                                    <span class="contact-option-value">+91 7904535371</span>
+                                </div>
+                            </a>
+                            <a href="tel:+917904535371" class="contact-option">
+                                <div class="contact-option-icon call">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path
+                                            d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
+                                    </svg>
+                                </div>
+                                <div class="contact-option-text">
+                                    <span class="contact-option-label">Phone</span>
+                                    <span class="contact-option-value">+91 7904535371</span>
+                                </div>
+                            </a>
+                            <a href="mailto:livinstudio2026@gmail.com" class="contact-option">
+                                <div class="contact-option-icon email">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path
+                                            d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                        <path d="M22 6l-10 7L2 6" />
+                                    </svg>
+                                </div>
+                                <div class="contact-option-text">
+                                    <span class="contact-option-label">Email</span>
+                                    <span class="contact-option-value">livinstudio2026@gmail.com</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="#hero"><span class="logo-bracket">&lt;</span>Leo<span class="logo-dot">.</span><span
+                            class="logo-caret">/&gt;</span></a>
+                </div>
+                <p class="footer-text">Building digital success stories, one project at a time.</p>
+                <div class="footer-links">
+                    <a href="#hero">Home</a>
+                    <a href="#services">Services</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <p class="footer-copyright">&copy; 2026 Livinkumar. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/7904535371?text=Hi%20Leo,%20I%20want%20to%20work%20with%20you" target="_blank"
+        class="whatsapp-float" aria-label="Chat on WhatsApp">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+        <span class="whatsapp-tooltip">Chat on WhatsApp</span>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
