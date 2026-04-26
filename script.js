@@ -255,7 +255,7 @@ function showNotification(message, type = 'info') {
 
 /* --- Smooth Scroll for Anchor Links --- */
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
+    anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const targetId = this.getAttribute('href');
 
@@ -482,11 +482,21 @@ function initTutoringSection() {
     const starIcon = `<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>`;
 
     // Know More button click handlers
-    knowMoreBtns.forEach(btn => {
-        btn.addEventListener('click', (e) => {
+    knowMoreBtns.forEach((btn) => {
+        btn.addEventListener('click', () => {
             const course = btn.getAttribute('data-course');
+
             if (course && courseData[course]) {
                 showCourseDetail(course);
+
+                const tutoringSection = document.querySelector('#tutoring');
+
+                if (tutoringSection) {
+                    tutoringSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start',
+                    });
+                }
             }
         });
     });
@@ -754,15 +764,15 @@ function initTutoringSection() {
 
             // Send email using EmailJS
             emailjs.send('service_ftbvmse', 'template_59cfdk7', formData)
-                .then(function() {
+                .then(function () {
                     closeEnrollmentPopup();
                     showSuccessNotification();
                 })
-                .catch(function(error) {
+                .catch(function (error) {
                     showNotification('Failed to submit. Please try again.', 'error');
                     console.error('EmailJS Error:', error);
                 })
-                .finally(function() {
+                .finally(function () {
                     submitBtn.innerHTML = originalText;
                     submitBtn.disabled = false;
                 });
