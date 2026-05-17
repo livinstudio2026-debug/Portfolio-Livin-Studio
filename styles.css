@@ -5,8 +5,9 @@
 
 /* --- CSS Variables / Design Tokens --- */
 
-html{
+html,body{
     max-width: 100vw;
+    overflow-x: hidden;
 }
 
 :root {
@@ -2529,110 +2530,376 @@ input, textarea, button {
 }
 
 /* --- Projects Section --- */
-.projects-section {
+/* ============================================
+   PROJECTS CAROUSEL — PJC
+============================================ */
+
+.pjc-section {
+    position: relative;
+    overflow: visible;
+    padding-bottom: 90px;
     background: var(--bg-primary);
 }
 
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-    gap: 32px;
-}
-
-.project-card {
-    background: var(--bg-secondary);
-    border-radius: 20px;
-    overflow: hidden;
-    border: 1px solid var(--border-color);
-    transition: var(--transition-base);
-}
-
-.project-card:hover {
-    transform: translateY(-8px) scale(1.02);
-    border-color: var(--color-primary);
-    box-shadow: var(--glow-primary);
-}
-
-.project-image {
-    position: relative;
-    overflow: hidden;
-}
-
-.project-image img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    transition: var(--transition-base);
-}
-
-.project-card:hover .project-image img {
-    transform: scale(1.05);
-}
-
-.project-overlay {
+/* Atmospheric glow behind the whole section */
+.pjc-ambient {
     position: absolute;
     inset: 0;
-    background: rgba(11, 15, 25, 0.9);
+    background:
+        radial-gradient(ellipse 80% 60% at 50% 40%, rgba(99,102,241,0.09) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 40% at 20% 80%, rgba(34,211,238,0.05) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ---- Viewport: clips side overflow, peeks side cards ---- */
+.pjc-viewport {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 48px 0 60px;
+    /* leaves enough room for shadow to not clip */
+}
+
+/* ---- Track: flex row of cards ---- */
+.pjc-track {
+    display: flex;
+    gap: 22px;
+    transition: transform 0.65s cubic-bezier(0.42, 0, 0.18, 1);
+    will-change: transform;
+    /* JS sets transform to centre active card */
+}
+
+/* ---- Single card ---- */
+.pjc-card {
+    flex: 0 0 var(--pjc-cw, 68vw);
+    height: var(--pjc-ch, 480px);
+    position: relative;
+    cursor: pointer;
+    transition:
+        filter 0.55s cubic-bezier(0.4,0,0.2,1),
+        opacity 0.55s cubic-bezier(0.4,0,0.2,1);
+    filter: brightness(0.38) saturate(0.4);
+    opacity: 0.75;
+}
+
+.pjc-card.active {
+    filter: brightness(1) saturate(1);
+    opacity: 1;
+    cursor: default;
+}
+
+/* ---- Glass frame (the card itself) ---- */
+.pjc-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.028);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    padding: 11px;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.45),
+        inset 0 1px 0 rgba(255,255,255,0.06);
+    transition:
+        border-color 0.55s,
+        box-shadow 0.55s;
+}
+
+.pjc-card.active .pjc-inner {
+    border-color: rgba(99, 102, 241, 0.42);
+    box-shadow:
+        0 0 0 1px rgba(99, 102, 241, 0.15),
+        0 28px 80px rgba(0, 0, 0, 0.55),
+        0 0 70px rgba(99, 102, 241, 0.14),
+        inset 0 1px 0 rgba(255,255,255,0.08);
+}
+
+/* ---- Image: fills the inner frame (inside the 11px padding) ---- */
+.pjc-img-frame {
+    position: absolute;
+    top: 11px; left: 11px; right: 11px;
+    /* leaves room for strip at bottom: 80px strip + 11px bottom padding */
+    bottom: 91px;
+    border-radius: 13px;
+    overflow: hidden;
+    background: #0a0c1a;
+}
+
+.pjc-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    transition: transform 0.65s cubic-bezier(0.4,0,0.2,1);
+}
+
+.pjc-card.active .pjc-img {
+    transform: scale(1.025);
+}
+
+/* ---- Always-visible footer strip (title + stack) ---- */
+.pjc-strip {
+    position: absolute;
+    bottom: 11px; left: 11px; right: 11px;
+    height: 80px;
+    border-radius: 13px;
+    background: rgba(6, 8, 22, 0.78);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255,255,255,0.07);
+    padding: 11px 16px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+    z-index: 4;
+    transition:
+        opacity 0.38s ease,
+        transform 0.38s ease;
+}
+
+.pjc-card.active .pjc-strip {
+    opacity: 0;
+    transform: translateY(8px);
+    pointer-events: none;
+}
+
+.pjc-strip-title {
+    font-size: 0.98rem;
+    font-weight: 700;
+    color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    letter-spacing: -0.01em;
+}
+
+.pjc-strip-stack {
+    display: flex;
+    gap: 6px;
+    flex-wrap: nowrap;
+    overflow: hidden;
+}
+
+.pjc-strip-stack span {
+    font-family: var(--font-mono);
+    font-size: 0.63rem;
+    padding: 2px 9px;
+    border-radius: 4px;
+    background: rgba(99,102,241,0.14);
+    border: 1px solid rgba(99,102,241,0.22);
+    color: #a5b4fc;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+/* ---- Full reveal overlay — slides up on active card ---- */
+.pjc-reveal {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    /* height fills the full card inner area */
+    padding: 0 26px 22px;
+    padding-top: 110px;   /* gradient fades image at top of overlay */
+    border-radius: 0 0 22px 22px;
+    background: linear-gradient(
+        to top,
+        rgba(4, 6, 18, 0.97) 0%,
+        rgba(4, 6, 18, 0.96) 40%,
+        rgba(4, 6, 18, 0.82) 65%,
+        rgba(4, 6, 18, 0.0) 100%
+    );
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 10px;
+    /* hidden state: slides down below */
+    transform: translateY(105%);
+    transition: transform 0.6s cubic-bezier(0.42, 0, 0.18, 1);
+}
+
+.pjc-card.active .pjc-reveal {
+    transform: translateY(0);
+}
+
+/* Stagger children fade-in */
+.pjc-reveal > * {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.pjc-card.active .pjc-reveal > *:nth-child(1) { opacity: 1; transform: none; transition-delay: 0.22s; }
+.pjc-card.active .pjc-reveal > *:nth-child(2) { opacity: 1; transform: none; transition-delay: 0.29s; }
+.pjc-card.active .pjc-reveal > *:nth-child(3) { opacity: 1; transform: none; transition-delay: 0.36s; }
+.pjc-card.active .pjc-reveal > *:nth-child(4) { opacity: 1; transform: none; transition-delay: 0.43s; }
+.pjc-card.active .pjc-reveal > *:nth-child(5) { opacity: 1; transform: none; transition-delay: 0.50s; }
+
+/* Tag */
+.pjc-tag {
+    display: inline-flex;
+    align-self: flex-start;
+    font-size: 0.67rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.8px;
+    padding: 4px 13px;
+    border-radius: 20px;
+    background: rgba(99,102,241,0.18);
+    border: 1px solid rgba(99,102,241,0.4);
+    color: #a5b4fc;
+}
+
+/* Title in overlay */
+.pjc-reveal-title {
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+}
+
+/* Description */
+.pjc-desc {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.68);
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Stack row in overlay */
+.pjc-reveal-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.pjc-reveal-stack span {
+    font-family: var(--font-mono);
+    font-size: 0.67rem;
+    padding: 3px 11px;
+    border-radius: 5px;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.11);
+    color: rgba(255,255,255,0.65);
+}
+
+/* Live Demo button */
+.pjc-live-btn {
+    display: inline-flex;
+    align-self: flex-start;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 24px;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #6366f1 0%, #818cf8 100%);
+    color: #fff;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    text-decoration: none;
+    box-shadow: 0 4px 24px rgba(99,102,241,0.45);
+    transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.pjc-live-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 36px rgba(99,102,241,0.65);
+    color: #fff;
+}
+
+/* ---- Arrow buttons ---- */
+.pjc-arrow {
+    position: absolute;
+    bottom: 26px;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.055);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
-    opacity: 0;
-    transition: var(--transition-base);
+    cursor: pointer;
+    transition: background 0.25s, border-color 0.25s, transform 0.2s, box-shadow 0.25s;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.3);
+    z-index: 20;
 }
 
-.project-card:hover .project-overlay {
-    opacity: 1;
+.pjc-arrow--prev { right: calc(50% + 30px); }
+.pjc-arrow--next { left: calc(50% + 30px); }
+
+.pjc-arrow:hover {
+    background: rgba(99,102,241,0.28);
+    border-color: rgba(99,102,241,0.55);
+    box-shadow: 0 0 22px rgba(99,102,241,0.45);
+    transform: scale(1.08);
 }
 
-.project-overlay-content {
+.pjc-arrow:disabled {
+    opacity: 0.2;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* ---- Dots ---- */
+.pjc-dots {
     display: flex;
-    gap: 12px;
+    justify-content: center;
+    gap: 9px;
+    margin-top: 0;
+    padding-bottom: 8px;
+    position: relative;
+    z-index: 5;
 }
 
-.project-content {
-    padding: 24px;
+.pjc-dot {
+    height: 6px;
+    width: 6px;
+    border-radius: 50%;
+    border: none;
+    padding: 0;
+    background: rgba(255,255,255,0.18);
+    cursor: pointer;
+    transition: width 0.35s ease, border-radius 0.35s ease, background 0.35s ease;
 }
 
-.project-tag {
-    display: inline-block;
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    padding: 4px 10px;
-    border-radius: 4px;
-    background: rgba(99, 102, 241, 0.2);
-    color: var(--color-primary);
-    margin-bottom: 12px;
+.pjc-dot.active {
+    width: 28px;
+    border-radius: 3px;
+    background: #6366f1;
 }
 
-.project-title {
-    font-size: 1.3rem;
-    font-weight: 700;
-    margin-bottom: 8px;
-    color: var(--text-primary);
+/* ---- Responsive ---- */
+@media (max-width: 1024px) {
+    .pjc-card { --pjc-cw: 78vw; --pjc-ch: 420px; }
 }
 
-.project-desc {
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-    margin-bottom: 16px;
-    line-height: 1.6;
+@media (max-width: 768px) {
+    .pjc-card { --pjc-cw: 84vw; --pjc-ch: 380px; }
+    .pjc-img-frame { bottom: 88px; }
+    .pjc-reveal-title { font-size: 1.15rem; }
+    .pjc-desc { font-size: 0.78rem; -webkit-line-clamp: 2; }
+    .pjc-arrow--prev { right: calc(50% + 26px); }
+    .pjc-arrow--next { left: calc(50% + 26px); }
 }
 
-.project-tech {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-}
-
-.project-tech span {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    padding: 4px 10px;
-    background: var(--bg-tertiary);
-    border-radius: 4px;
-    color: var(--text-secondary);
+@media (max-width: 480px) {
+    .pjc-card { --pjc-cw: 88vw; --pjc-ch: 340px; }
+    .pjc-img-frame { bottom: 84px; }
+    .pjc-strip { height: 74px; }
 }
 
 /* --- Skills Section --- */
