@@ -523,106 +523,195 @@
     </div>
 
     <!-- Projects Section -->
-    <section class="section projects-section" id="projects">
+    <section class="section pjc-section" id="projects">
+        <div class="pjc-ambient"></div>
         <div class="container">
             <div class="section-header reveal">
                 <span class="section-tag">My Work</span>
                 <h2 class="section-title">Projects That Speak Quality</h2>
             </div>
-            <div class="projects-grid">
-                <div class="project-card reveal">
-                    <div class="project-image">
-                        <img loading="lazy"
-                            src="./assets/projects/Iron-Pulse-Fitness-Premium-Personal-Training-Transformation-Gym.png"
-                            alt="Iron Pulse Fitness premium gym landing page" />
-
-                        <div class="project-overlay">
-                            <div class="project-overlay-content">
-                                <a href="https://ironpulsegym-livinstudio2026.vercel.app/" target="_blank" class="btn btn-small">
-                                    Live Demo
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-content">
-                        <span class="project-tag">Premium Frontend</span>
-
-                        <h3 class="project-title">Iron Pulse Fitness</h3>
-
-                        <p class="project-desc">
-                            A cinematic premium fitness landing page designed for a modern gym brand,
-                            featuring immersive storytelling, advanced GSAP animations, responsive
-                            layouts, and a luxury dark visual style that drives user engagement and
-                            conversion.
-                        </p>
-
-                        <div class="project-tech">
-                            <span>Next.js</span>
-                            <span>Tailwind CSS</span>
-                            <span>GSAP</span>
-                            <span>TypeScript</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card reveal">
-                    <div class="project-image">
-                        <img loading="lazy" src="./assets/projects/Frostella-Creamery-Luxury-Artisan-Ice-Cream.png"
-                            alt="Frostella Creamery - Luxury Ice Cream Website">
-                        <div class="project-overlay">
-                            <div class="project-overlay-content">
-                                <a href="https://frostellacreamerylivinstudio.netlify.app/" target="_blank"
-                                    class="btn btn-small">Live Demo</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <span class="project-tag">Luxury UI</span>
-                        <h3 class="project-title">Frostella Creamery</h3>
-                        <p class="project-desc">
-                            A premium artisan ice cream brand website featuring cinematic scroll animations,
-                            immersive storytelling, and a luxurious user experience designed to elevate digital
-                            branding.
-                        </p>
-                        <div class="project-tech">
-                            <span>React.js</span>
-                            <span>Framer Motion</span>
-                            <span>Tailwind CSS</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card reveal">
-                    <div class="project-image">
-                        <img loading="lazy"
-                            src="./assets/projects/LoomCraft-Threads-Premium-Hospital-Bedsheets-Pillow.png"
-                            alt="Project Alpha - Blog Platform">
-                        <div class="project-overlay">
-                            <div class="project-overlay-content">
-                                <a href="https://livinstudio2026-debug.github.io/LoomCraft-Threads/"
-                                    class="btn btn-small" target="_blank">Live Demo</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <span class="project-tag">Frontend</span>
-                        <h3 class="project-title">LoomCraft Threads</h3>
-                        <p class="project-desc">
-                            A modern responsive textile business landing page designed to showcase premium products,
-                            build brand trust, and improve customer engagement through elegant visuals and smooth
-                            interactive animations.
-                        </p>
-                        <div class="project-tech">
-                            <span>HTML</span>
-                            <span>CSS</span>
-                            <span>JavaScript</span>
-                            <span>GSAP</span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
         </div>
+
+        <!-- Viewport clips side overflow -->
+        <div class="pjc-viewport">
+            <div class="pjc-track" id="pjcTrack">
+
+                <!-- Card 1: Iron Pulse Fitness -->
+                <div class="pjc-card"
+                    data-tag="Premium Frontend"
+                    data-title="Iron Pulse Fitness"
+                    data-desc="A cinematic premium fitness landing page designed for a modern gym brand, featuring immersive storytelling, advanced GSAP animations, responsive layouts, and a luxury dark visual style that drives engagement and conversion."
+                    data-tech="Next.js,Tailwind CSS,GSAP,TypeScript"
+                    data-link="https://ironpulsegym-livinstudio2026.vercel.app/">
+                    <div class="pjc-inner">
+                        <div class="pjc-img-frame">
+                            <img loading="lazy" src="./assets/projects/Iron-Pulse-Fitness-Premium-Personal-Training-Transformation-Gym.png" alt="Iron Pulse Fitness" class="pjc-img">
+                        </div>
+                        <!-- always visible strip: title + stack -->
+                        <div class="pjc-strip">
+                            <h3 class="pjc-strip-title">Iron Pulse Fitness</h3>
+                            <div class="pjc-strip-stack">
+                                <span>Next.js</span><span>Tailwind CSS</span><span>GSAP</span><span>TypeScript</span>
+                            </div>
+                        </div>
+                        <!-- slides up on active -->
+                        <div class="pjc-reveal">
+                            <span class="pjc-tag">Premium Frontend</span>
+                            <h3 class="pjc-reveal-title">Iron Pulse Fitness</h3>
+                            <p class="pjc-desc">A cinematic premium fitness landing page designed for a modern gym brand, featuring immersive storytelling, advanced GSAP animations, responsive layouts, and a luxury dark visual style that drives engagement and conversion.</p>
+                            <div class="pjc-reveal-stack">
+                                <span>Next.js</span><span>Tailwind CSS</span><span>GSAP</span><span>TypeScript</span>
+                            </div>
+                            <a href="https://ironpulsegym-livinstudio2026.vercel.app/" target="_blank" class="pjc-live-btn">
+                                <span>Live Demo</span>
+                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Frostella Creamery -->
+                <div class="pjc-card"
+                    data-tag="Luxury UI"
+                    data-title="Frostella Creamery"
+                    data-desc="A premium artisan ice cream brand website featuring cinematic scroll animations, immersive storytelling, and a luxurious user experience designed to elevate digital branding to the highest level."
+                    data-tech="React.js,Framer Motion,Tailwind CSS"
+                    data-link="https://frostellacreamerylivinstudio.netlify.app/">
+                    <div class="pjc-inner">
+                        <div class="pjc-img-frame">
+                            <img loading="lazy" src="./assets/projects/Frostella-Creamery-Luxury-Artisan-Ice-Cream.png" alt="Frostella Creamery" class="pjc-img">
+                        </div>
+                        <div class="pjc-strip">
+                            <h3 class="pjc-strip-title">Frostella Creamery</h3>
+                            <div class="pjc-strip-stack">
+                                <span>React.js</span><span>Framer Motion</span><span>Tailwind CSS</span>
+                            </div>
+                        </div>
+                        <div class="pjc-reveal">
+                            <span class="pjc-tag">Luxury UI</span>
+                            <h3 class="pjc-reveal-title">Frostella Creamery</h3>
+                            <p class="pjc-desc">A premium artisan ice cream brand website featuring cinematic scroll animations, immersive storytelling, and a luxurious user experience designed to elevate digital branding to the highest level.</p>
+                            <div class="pjc-reveal-stack">
+                                <span>React.js</span><span>Framer Motion</span><span>Tailwind CSS</span>
+                            </div>
+                            <a href="https://frostellacreamerylivinstudio.netlify.app/" target="_blank" class="pjc-live-btn">
+                                <span>Live Demo</span>
+                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: LoomCraft Threads -->
+                <div class="pjc-card"
+                    data-tag="Frontend"
+                    data-title="LoomCraft Threads"
+                    data-desc="A modern responsive textile business landing page designed to showcase premium products, build brand trust, and improve customer engagement through elegant visuals and smooth interactive animations."
+                    data-tech="HTML,CSS,JavaScript,GSAP"
+                    data-link="https://livinstudio2026-debug.github.io/LoomCraft-Threads/">
+                    <div class="pjc-inner">
+                        <div class="pjc-img-frame">
+                            <img loading="lazy" src="./assets/projects/LoomCraft-Threads-Premium-Hospital-Bedsheets-Pillow.png" alt="LoomCraft Threads" class="pjc-img">
+                        </div>
+                        <div class="pjc-strip">
+                            <h3 class="pjc-strip-title">LoomCraft Threads</h3>
+                            <div class="pjc-strip-stack">
+                                <span>HTML</span><span>CSS</span><span>JavaScript</span><span>GSAP</span>
+                            </div>
+                        </div>
+                        <div class="pjc-reveal">
+                            <span class="pjc-tag">Frontend</span>
+                            <h3 class="pjc-reveal-title">LoomCraft Threads</h3>
+                            <p class="pjc-desc">A modern responsive textile business landing page designed to showcase premium products, build brand trust, and improve customer engagement through elegant visuals and smooth interactive animations.</p>
+                            <div class="pjc-reveal-stack">
+                                <span>HTML</span><span>CSS</span><span>JavaScript</span><span>GSAP</span>
+                            </div>
+                            <a href="https://livinstudio2026-debug.github.io/LoomCraft-Threads/" target="_blank" class="pjc-live-btn">
+                                <span>Live Demo</span>
+                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4: KS Software Solutions -->
+                <div class="pjc-card"
+                    data-tag="Business Website"
+                    data-title="KS Software Solutions"
+                    data-desc="A clean and professional corporate website crafted to highlight data processing and admin support services with modern layouts, smooth animations, responsive design, and strong brand credibility."
+                    data-tech="HTML,CSS,JavaScript,GSAP"
+                    data-link="#">
+                    <div class="pjc-inner">
+                        <div class="pjc-img-frame">
+                            <img loading="lazy" src="./assets/projects/KS-Software-Solutions-Data-Processing-Admin-Support-Experts.png" alt="KS Software Solutions" class="pjc-img">
+                        </div>
+                        <div class="pjc-strip">
+                            <h3 class="pjc-strip-title">KS Software Solutions</h3>
+                            <div class="pjc-strip-stack">
+                                <span>HTML</span><span>CSS</span><span>JavaScript</span><span>GSAP</span>
+                            </div>
+                        </div>
+                        <div class="pjc-reveal">
+                            <span class="pjc-tag">Business Website</span>
+                            <h3 class="pjc-reveal-title">KS Software Solutions</h3>
+                            <p class="pjc-desc">A clean and professional corporate website crafted to highlight data processing and admin support services with modern layouts, smooth animations, responsive design, and strong brand credibility.</p>
+                            <div class="pjc-reveal-stack">
+                                <span>HTML</span><span>CSS</span><span>JavaScript</span><span>GSAP</span>
+                            </div>
+                            <a href="#" target="_blank" class="pjc-live-btn">
+                                <span>Live Demo</span>
+                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5: LushGlow Beauty Studio -->
+                <div class="pjc-card"
+                    data-tag="Luxury Beauty UI"
+                    data-title="LushGlow Beauty Studio"
+                    data-desc="A visually stunning luxury beauty parlour website designed with elegant aesthetics, premium typography, immersive transitions, cinematic sections, and smooth interactive animations for a high-end brand experience."
+                    data-tech="React,TypeScript,Framer Motion,GSAP"
+                    data-link="https://lushglowleo.vercel.app/">
+                    <div class="pjc-inner">
+                        <div class="pjc-img-frame">
+                            <img loading="lazy" src="./assets/projects/LushGlow-Beauty-Studio.png" alt="LushGlow Beauty Studio" class="pjc-img">
+                        </div>
+                        <div class="pjc-strip">
+                            <h3 class="pjc-strip-title">LushGlow Beauty Studio</h3>
+                            <div class="pjc-strip-stack">
+                                <span>React</span><span>TypeScript</span><span>Framer Motion</span><span>GSAP</span>
+                            </div>
+                        </div>
+                        <div class="pjc-reveal">
+                            <span class="pjc-tag">Luxury Beauty UI</span>
+                            <h3 class="pjc-reveal-title">LushGlow Beauty Studio</h3>
+                            <p class="pjc-desc">A visually stunning luxury beauty parlour website designed with elegant aesthetics, premium typography, immersive transitions, cinematic sections, and smooth interactive animations for a high-end brand experience.</p>
+                            <div class="pjc-reveal-stack">
+                                <span>React</span><span>TypeScript</span><span>Framer Motion</span><span>GSAP</span>
+                            </div>
+                            <a href="https://lushglowleo.vercel.app/" target="_blank" class="pjc-live-btn">
+                                <span>Live Demo</span>
+                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- /pjc-track -->
+        </div><!-- /pjc-viewport -->
+
+        <!-- Nav dots -->
+        <div class="pjc-dots" id="pjcDots"></div>
+
+        <!-- Arrow buttons -->
+        <button class="pjc-arrow pjc-arrow--prev" id="pjcPrev" aria-label="Previous">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <button class="pjc-arrow pjc-arrow--next" id="pjcNext" aria-label="Next">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+
     </section>
 
     <!-- Skills Section -->
