@@ -800,3 +800,140 @@ function initTutoringSection() {
         }
     });
 }
+
+/* ============================================
+   PROJECT CAROUSEL — PJC
+============================================ */
+(function () {
+    'use strict';
+
+    const GAP = 22; // px — must match CSS gap
+
+    function getCardW() {
+        // Match CSS: 68vw desktop, 78vw ≤1024, 84vw ≤768, 88vw ≤480
+        const vw = window.innerWidth;
+        if (vw <= 480)  return vw * 0.88;
+        if (vw <= 768)  return vw * 0.84;
+        if (vw <= 1024) return vw * 0.78;
+        return vw * 0.68;
+    }
+
+    function init() {
+        const track    = document.getElementById('pjcTrack');
+        const viewport = track && track.closest('.pjc-viewport');
+        const prevBtn  = document.getElementById('pjcPrev');
+        const nextBtn  = document.getElementById('pjcNext');
+        const dotsWrap = document.getElementById('pjcDots');
+
+        if (!track || !viewport) return;
+
+        const cards = Array.from(track.querySelectorAll('.pjc-card'));
+        const total = cards.length;
+        let current = 0;
+
+        /* ---- Build dots ---- */
+        cards.forEach((_, i) => {
+            const d = document.createElement('button');
+            d.className = 'pjc-dot' + (i === 0 ? ' active' : '');
+            d.setAttribute('aria-label', 'Project ' + (i + 1));
+            d.addEventListener('click', () => goTo(i));
+            dotsWrap.appendChild(d);
+        });
+        const dots = dotsWrap.querySelectorAll('.pjc-dot');
+
+        /* ---- Core: go to index ---- */
+        function goTo(idx) {
+            idx = Math.max(0, Math.min(idx, total - 1));
+
+            // remove active before adding
+            cards[current].classList.remove('active');
+            dots[current].classList.remove('active');
+
+            current = idx;
+            cards[current].classList.add('active');
+            dots[current].classList.add('active');
+
+            // Offset: centre the active card inside the viewport
+            const cw  = getCardW();
+            const vw  = viewport.clientWidth;
+            // left edge of card[i] = i*(cw+GAP)
+            // desired left edge = (vw - cw) / 2
+            const offset = current * (cw + GAP) - (vw - cw) / 2;
+            track.style.transform = 'translateX(' + (-offset) + 'px)';
+
+            prevBtn.disabled = current === 0;
+            nextBtn.disabled = current === total - 1;
+        }
+
+        /* ---- Arrow clicks ---- */
+        prevBtn.addEventListener('click', () => goTo(current - 1));
+        nextBtn.addEventListener('click', () => goTo(current + 1));
+
+        /* ---- Click on a side card to navigate to it ---- */
+        cards.forEach((card, i) => {
+            card.addEventListener('click', () => {
+                if (i !== current) goTo(i);
+            });
+        });
+
+        /* ---- Touch / swipe ---- */
+        let touchStartX = 0;
+        let touchStartY = 0;
+        let swiping = false;
+
+        viewport.addEventListener('touchstart', function (e) {
+            touchStartX = e.touches[0].clientX;
+            touchStartY = e.touches[0].clientY;
+            swiping = true;
+        }, { passive: true });
+
+        viewport.addEventListener('touchend', function (e) {
+            if (!swiping) return;
+            swiping = false;
+            const dx = touchStartX - e.changedTouches[0].clientX;
+            const dy = Math.abs(touchStartY - e.changedTouches[0].clientY);
+            // only trigger if horizontal swipe dominates
+            if (Math.abs(dx) > 45 && Math.abs(dx) > dy * 1.5) {
+                dx > 0 ? goTo(current + 1) : goTo(current - 1);
+            }
+        }, { passive: true });
+
+        /* ---- Keyboard when section in view ---- */
+        document.addEventListener('keydown', function (e) {
+            const section = document.getElementById('projects');
+            if (!section) return;
+            const r = section.getBoundingClientRect();
+            if (r.bottom < 0 || r.top > window.innerHeight) return;
+            if (e.key === 'ArrowLeft')  { e.preventDefault(); goTo(current - 1); }
+            if (e.key === 'ArrowRight') { e.preventDefault(); goTo(current + 1); }
+        });
+
+        /* ---- Re-centre on resize ---- */
+        let resizeTimer;
+        window.addEventListener('resize', function () {
+            clearTimeout(resizeTimer);
+            // Disable transition briefly to avoid janky resize animation
+            track.style.transition = 'none';
+            resizeTimer = setTimeout(function () {
+                track.style.transition = '';
+                goTo(current);
+            }, 120);
+        }, { passive: true });
+
+        /* ---- Init ---- */
+        // Disable transition for first paint
+        track.style.transition = 'none';
+        goTo(0);
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                track.style.transition = '';
+            });
+        });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+})();
