@@ -434,6 +434,30 @@ function initTutoringSection() {
             mode: 'One-on-One Live Tutoring',
             topics: ['HTML', 'CSS', 'Flexbox', 'Grid', 'Responsive design', 'Tailwind CSS', 'JavaScript integration', 'React basics', 'Components', 'Hooks', 'Routing', 'Deployment'],
             roadmap: ['Week 1: HTML & CSS Fundamentals', 'Week 2: Flexbox, Grid & Responsive', 'Week 3: Tailwind CSS', 'Week 4: JavaScript Integration', 'Week 5: React Basics & Components', 'Week 6: Hooks, Routing & Deployment']
+        },
+        node: {
+            title: 'Node Mastery',
+            displayTitle: 'Node Mastery',
+            badge: 'Backend Focused',
+            badgeClass: 'node',
+            icon: `<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 5v6c0 1.66-4 3-9 3s-9-1.34-9-3V5"></path><path d="M3 11v6c0 1.66 4 3 9 3s9-1.34 9-3v-6"></path></svg>`,
+            price: '₹6,499',
+            duration: '5-6 Weeks',
+            mode: 'One-on-One Live Tutoring',
+            topics: ['Node.js fundamentals', 'Express.js', 'REST API design', 'MongoDB & Mongoose', 'Authentication (JWT)', 'Middleware & error handling', 'Git & GitHub workflow', 'Deployment basics'],
+            roadmap: ['Week 1: Node.js & Express Basics', 'Week 2: REST API Design', 'Week 3: MongoDB & Mongoose', 'Week 4: Auth & Middleware', 'Week 5-6: Git, Deployment & Projects']
+        },
+        fullstack: {
+            title: 'Fullstack Mastery',
+            displayTitle: 'Fullstack Mastery',
+            badge: 'Most In-Demand',
+            badgeClass: 'fullstack',
+            icon: `<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 22 8.5 12 15 2 8.5 12 2"></polygon><polyline points="2 15.5 12 22 22 15.5"></polyline><polyline points="2 12 12 18.5 22 12"></polyline></svg>`,
+            price: '₹12,999',
+            duration: '10-12 Weeks',
+            mode: 'One-on-One Live Tutoring',
+            topics: ['React fundamentals', 'Node.js & Express', 'MongoDB & Mongoose', 'REST APIs & Authentication', 'State management', 'Git & GitHub', 'Full project deployment', 'Real-world capstone project'],
+            roadmap: ['Weeks 1-3: Frontend with React', 'Weeks 4-6: Backend with Node & Express', 'Weeks 7-8: MongoDB & Database Design', 'Weeks 9-10: Full Integration & Auth', 'Weeks 11-12: Capstone Project & Deployment']
         }
     };
 
@@ -474,6 +498,80 @@ function initTutoringSection() {
     ];
 
     let currentCourse = null;
+
+    // Order of courses as they appear in the slider (used for next/prev navigation)
+    const courseOrder = Array.from(tutoringGrid.querySelectorAll('.tutoring-card[data-course]'))
+        .map((card) => card.getAttribute('data-course'));
+
+    function goToAdjacentCourse(direction) {
+        if (!courseOrder.length) return;
+        const idx = courseOrder.indexOf(currentCourse);
+        if (idx === -1) return;
+        const nextIdx = (idx + direction + courseOrder.length) % courseOrder.length;
+        switchCourseDetail(courseOrder[nextIdx]);
+    }
+
+    // Swap the currently open course detail without re-running the grid fade-out
+    function switchCourseDetail(courseKey) {
+        const course = courseData[courseKey];
+        if (!course) return;
+        currentCourse = courseKey;
+
+        courseDetailContent.style.opacity = '0';
+        setTimeout(() => {
+            courseDetailContent.innerHTML = buildCourseDetailHTML(course, courseKey);
+            attachDetailEventListeners(courseKey);
+            courseDetailContent.style.opacity = '1';
+        }, 200);
+    }
+
+    // Slider nav arrows — scroll by one card width at a time in grid view,
+    // or step to the next/previous course when a course detail is open
+    const tutoringPrev = document.getElementById('tutoringPrev');
+    const tutoringNext = document.getElementById('tutoringNext');
+
+    function scrollTutoringSlider(direction) {
+        if (!tutoringGrid) return;
+        const card = tutoringGrid.querySelector('.tutoring-card');
+        if (!card) return;
+        const gap = parseFloat(getComputedStyle(tutoringGrid).columnGap || getComputedStyle(tutoringGrid).gap || 32);
+        const scrollAmount = card.getBoundingClientRect().width + gap;
+        tutoringGrid.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+    }
+
+    function handleTutoringNavClick(direction) {
+        if (courseDetailContainer.classList.contains('active')) {
+            goToAdjacentCourse(direction);
+        } else {
+            scrollTutoringSlider(direction);
+        }
+    }
+
+    if (tutoringPrev) {
+        tutoringPrev.addEventListener('click', () => handleTutoringNavClick(-1));
+    }
+
+    if (tutoringNext) {
+        tutoringNext.addEventListener('click', () => handleTutoringNavClick(1));
+    }
+
+    // Swipe to move between course details on touch devices
+    let courseDetailTouchStartX = 0;
+    let courseDetailTouchStartY = 0;
+
+    courseDetailContainer.addEventListener('touchstart', (e) => {
+        courseDetailTouchStartX = e.changedTouches[0].screenX;
+        courseDetailTouchStartY = e.changedTouches[0].screenY;
+    }, { passive: true });
+
+    courseDetailContainer.addEventListener('touchend', (e) => {
+        const deltaX = e.changedTouches[0].screenX - courseDetailTouchStartX;
+        const deltaY = e.changedTouches[0].screenY - courseDetailTouchStartY;
+
+        if (Math.abs(deltaX) > 50 && Math.abs(deltaX) > Math.abs(deltaY)) {
+            goToAdjacentCourse(deltaX < 0 ? 1 : -1);
+        }
+    }, { passive: true });
 
     // Helper function to create SVG check icon
     const checkIcon = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>`;
